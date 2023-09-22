@@ -1,7 +1,7 @@
 let data;
 let months;
 let labels = ["-1°C", "0°C", "1°C"];
-let circles = [100, 300, 500];
+let circles = [100, 250, 500];
 
 let currentRow = 1;
 let currentMonth = 0;
