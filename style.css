@@ -1,0 +1,12 @@
+#climateContainer {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#climateCanvas {
+  height: 700px;
+  width: 700px;
+  background-color: black;
+}
