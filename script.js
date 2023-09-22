@@ -72,10 +72,10 @@ function draw() {
   translate(width / 2, height / 2);
 
   //   Year
-  let year = data.getRow(currentRow).get("Year");
-  textSize(24);
-  textAlign(CENTER, CENTER);
-  text(year, 0, 0);
+  // let year = data.getRow(currentRow).get("Year");
+  // textSize(24);
+  // textAlign(CENTER, CENTER);
+  // text(year, 0, 0);
 
   //   Climate Curve
   beginShape();
@@ -105,6 +105,7 @@ function draw() {
         let y2 = pr * sin(angle - PI / 6);
 
         if (!firstValue) {
+          let year = data.getRow(currentRow).get("Year");
           let avg = (anomaly + previousAnomaly) * 0.5;
           let cold = color(0, 0, 255);
           let warm = color(255, 0, 0);
@@ -117,6 +118,11 @@ function draw() {
           }
           stroke(lineColor);
           line(x1, y1, x2, y2);
+
+          textSize(28);
+          strokeWeight(1);
+          textAlign(CENTER, CENTER);
+          text(year, 0, 0);
         }
         firstValue = false;
         previousAnomaly = anomaly;
@@ -139,8 +145,11 @@ function draw() {
   for (let i = 0; i < labels.length; i++) {
     if (i != 1) {
       stroke(255);
+      textSize(20);
+      textStyle(NORMAL);
     } else {
       stroke("#019A17");
+      textStyle(BOLD);
     }
     strokeWeight(4);
     noFill();
@@ -148,10 +157,10 @@ function draw() {
     if (i != 1) {
       fill(255);
     } else {
-      fill("#019A17");
+      fill(255);
     }
     noStroke();
-    textSize(20);
+
     text(
       labels[i],
       (circles[i] / 2 + 20) * sin((135 * PI) / 180),
@@ -175,7 +184,7 @@ function draw() {
     pop();
   }
 
-  frameRate(56);
+  frameRate(84);
 }
 
 // DATA REFERENCE: GISS Surface Temp: https://data.giss.nasa.gov/gistemp/
